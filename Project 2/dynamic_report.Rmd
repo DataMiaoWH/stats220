@@ -1,0 +1,94 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{css}
+body {
+  font-family: Georgia, serif;
+  color: #2c2c2c;
+  padding: 20px;
+}
+
+h2 {
+  color: #4a90d9;
+  border-bottom: 2px solid #4a90d9;
+  padding-bottom: 6px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.summary-box {
+  background-color: #f0f7ff;
+  border-left: 4px solid #4a90d9;
+  padding: 12px 20px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+```
+
+## Daily Café Drink Observations
+
+This report tracks drinks observed at cafés over a two-week period, focusing on drink type, size, price, and time of day. The data is updated dynamically as new observations are logged.
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRpaV2hAWyd5ujhrqoV3zonod4LI6QRkUCaeZARUgJAaRf9IqanNpQS5HTG36xY431Mjpn6MmufFrhC/pub?output=csv")
+
+latest_data <- logged_data %>%
+  rename(
+    timestamp   = Timestamp,
+    drink_type  = drink_type,
+    size        = size,
+    price       = price_nzd,
+    time_of_day = time_of_day
+  )
+
+# Summary values
+total_obs       <- nrow(latest_data)
+mean_price      <- round(mean(latest_data$price), 2)
+most_common_drink <- names(sort(table(latest_data$drink_type), decreasing = TRUE))[1]
+most_common_time  <- names(sort(table(latest_data$time_of_day), decreasing = TRUE))[1]
+```
+
+<div class="summary-box">
+A total of **`r total_obs`** drinks have been observed so far. The most frequently ordered drink is **`r most_common_drink`**, and most observations were made in the **`r most_common_time`**. The average price of a drink is **$`r mean_price` NZD**.
+</div>
+
+### Drink Type
+
+The bar chart below shows how many times each type of drink was observed during the logging period.
+
+```{r}
+ggplot(latest_data, aes(x = drink_type)) +
+  geom_bar(fill = "steelblue") +
+  labs(
+    title = "Number of Observations by Drink Type",
+    x = "Drink Type",
+    y = "Count"
+  ) +
+  theme_minimal()
+```
+
+### Time of Day
+
+The bar chart below shows at what time of day drinks were most commonly observed.
+
+```{r}
+ggplot(latest_data, aes(x = time_of_day)) +
+  geom_bar(fill = "mediumseagreen") +
+  labs(
+    title = "Number of Observations by Time of Day",
+    x = "Time of Day",
+    y = "Count"
+  ) +
+  theme_minimal()
+```

@@ -24,14 +24,6 @@ p {
   font-size: 16px;
   line-height: 1.7;
 }
-
-.summary-box {
-  background-color: #f0f7ff;
-  border-left: 4px solid #4a90d9;
-  padding: 12px 20px;
-  margin: 16px 0;
-  border-radius: 4px;
-}
 ```
 
 ## Daily Café Drink Observations
@@ -59,9 +51,7 @@ most_common_drink <- names(sort(table(latest_data$drink_type), decreasing = TRUE
 most_common_time  <- names(sort(table(latest_data$time_of_day), decreasing = TRUE))[1]
 ```
 
-<div class="summary-box">
 A total of **`r total_obs`** drinks have been observed so far. The most frequently ordered drink is **`r most_common_drink`**, and most observations were made in the **`r most_common_time`**. The average price of a drink is **$`r mean_price` NZD**.
-</div>
 
 ### Drink Type
 

@@ -1,0 +1,49 @@
+---
+title: "Project 4"
+author: "Yongnan Qi"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Introduction
+
+For this project, I continued observational data collection that began in Project 2, focusing on **café beverage orders** as my subject of observation. Specifically, I recorded details about drinks being purchased at a local café, noting the type of drink, its size, its price in NZD, and the time of day the order was placed. Each observation was logged via a Google Form immediately after witnessing a drink order, ensuring accuracy and consistency.
+
+The purpose of this data collection was to explore patterns in everyday café consumption behaviour — a topic that is both personally relevant and statistically interesting. I was curious whether certain drink types are systematically more expensive, whether there are predictable peak times for café orders, and whether drink size reliably predicts the price paid.
+
+No new questions were added to the Google Form from Project 2, as the existing five variables — `Timestamp`, `drink_type`, `size`, `price_nzd`, and `time_of_day` — were sufficient to address the three analytical questions I wanted to explore in this project.
+
+Data collection for this project was carried out by myself only. I collected a total of **25 observations** across multiple days in March and April 2026. Observations were made during both morning and afternoon café visits, providing coverage across different times of day.
+
+The process of creating visualisations required careful thought about which variables to pair together and which chart types would communicate the relationships most clearly. For the first visualisation, I chose a horizontal bar chart (`geom_col`) to compare average prices across drink types, because bar charts are ideal for comparing a numerical summary across discrete categories. For the second, I used an area-and-line chart (`geom_area` + `geom_line`) to show how observation frequency changed across hours of the day, because this geom effectively highlights the volume and shape of temporal patterns. For the third, I used a boxplot (`geom_boxplot`) with jittered individual points overlaid, as this combination shows both the summary distribution and the raw data simultaneously — making outliers visible and the spread of prices interpretable.
+
+I initially experimented with a violin plot for the size-price comparison, but found that with only 25 observations the violin shapes were not meaningful. Switching to a boxplot with jitter provided a cleaner and more honest representation of the data at this sample size. All three visualisations use a warm coffee-toned colour palette to maintain visual consistency with the HTML data story.
+
+---
+
+## Visual data story
+
+My visual data story is published and accessible at the following URL:
+
+[https://yourusername.github.io/stats220/visual_data_story.html](https://yourusername.github.io/stats220/visual_data_story.html)
+
+*(Replace `yourusername` with your actual GitHub username before submitting.)*
+
+The visual data story demonstrates creativity in several ways. First, the overall design uses a custom CSS colour theme inspired by the subject matter — warm coffee browns and creams — which creates a cohesive aesthetic that goes beyond the default R Markdown styling. Second, the story is structured as a genuine narrative with three progressively revealed sections, each posing a question before answering it with a visualisation. This question-and-answer structure guides the reader through the data in a logical, engaging way rather than simply presenting figures one after another. Third, JavaScript-based progressive reveal on scroll was included to create a smooth, modern reading experience that standard R Markdown output does not provide by default. Fourth, the caption and highlight-box CSS elements were custom-designed to draw attention to key data source information and to visually separate different components of each section, improving both readability and accessibility.
+
+---
+
+## Learning reflection
+
+The most important idea I learned from Module 4 — Creating Visual-Based Communications — is the concept of the **grammar of graphics** as implemented in `{ggplot2}`. Before this module, I thought of charts as fixed templates (bar chart, pie chart, line chart). Learning that every visualisation is built from composable layers — data, aesthetic mappings, geometric objects, scales, and themes — fundamentally changed how I approach data visualisation. It means that instead of choosing a chart type and fitting data into it, I now think about *what relationship I want to show* first, and then build the layers needed to show it clearly. This was directly useful in Project 4, where I had to decide why a boxplot with jitter was a better choice than a violin plot for a small dataset.
+
+Going forward, I am most curious about **interactive visualisations** using packages like `{plotly}` or `{ggiraph}`, which can convert static `{ggplot2}` outputs into interactive charts with hover tooltips, zooming, and filtering. I am also curious about `{shiny}`, which would allow a viewer to select which drink type or time period to display — turning a static story into a dynamic, user-driven exploration. These tools seem like the natural next step after mastering static visualisation, and I can see them being valuable in both academic and professional data communication contexts.
+
+---
+
+## Appendix
+
+The complete R code used to produce all visualisations for this project is included below. This code is fully reproducible — all data is read directly from a published Google Sheets CSV URL, and no local file paths are used.
+
+```{r file='data_visualisation.R', eval=FALSE, echo=TRUE}
+```

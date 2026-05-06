@@ -1,0 +1,26 @@
+Timestamp,drink_type,size,price_nzd,time_of_day
+2026-03-07 08:12,Latte,Medium,6,Morning
+2026-03-07 09:45,Flat White,Small,5,Morning
+2026-03-07 14:30,Cappuccino,Medium,6,Afternoon
+2026-03-08 08:05,Latte,Large,7,Morning
+2026-03-08 10:22,Americano,Small,4.5,Morning
+2026-03-08 15:10,Tea,Medium,4,Afternoon
+2026-03-09 07:58,Flat White,Medium,5.5,Morning
+2026-03-09 12:40,Latte,Medium,6,Afternoon
+2026-03-09 17:35,Cappuccino,Small,5.5,Evening
+2026-03-10 08:30,Flat White,Small,5,Morning
+2026-03-10 09:15,Latte,Large,7,Morning
+2026-03-10 13:00,Americano,Medium,5,Afternoon
+2026-03-11 08:20,Latte,Medium,6,Morning
+2026-03-11 11:45,Tea,Small,3.5,Morning
+2026-03-11 16:50,Flat White,Medium,5.5,Evening
+2026-03-12 07:50,Cappuccino,Large,6.5,Morning
+2026-03-12 14:20,Latte,Medium,6,Afternoon
+2026-03-12 18:10,Other,Medium,5,Evening
+2026-03-13 08:35,Flat White,Small,5,Morning
+2026-03-13 10:00,Latte,Medium,6,Morning
+2026-03-13 15:30,Americano,Large,5.5,Afternoon
+2026-03-14 08:45,Cappuccino,Medium,6,Morning
+2026-03-14 13:15,Tea,Medium,4,Afternoon
+2026-03-14 17:55,Latte,Large,7,Evening
+2026-03-15 09:10,Flat White,Medium,5.5,Morning
